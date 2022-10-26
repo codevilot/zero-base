@@ -6,5 +6,8 @@ import 'core-js';
 
   //IOS 운영체제 여부 확인 유틸리티 함수
 
-  console.log(global.navigator.userAgent);
-})(globalThis);
+  // iOS 운영체제 여부 확인 유틸리티 함수
+  const isIOS = () => userAgent.includes('ios');
+
+  console.log(isIOS());
+})(window);
