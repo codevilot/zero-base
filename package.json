@@ -23,7 +23,8 @@
     "watch:lint": "cross-var esw --watch $npm_package_config_dir --ignore-path .gitignore",
     "format": "cross-var prettier --write $npm_package_config_dir --ignore-path .gitignore",
     "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}",
-    "test": "jest"
+    "test":"jest"
+    
   },
   "keywords": [
     "ecmascript",
