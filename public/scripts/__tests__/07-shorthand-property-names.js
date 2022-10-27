@@ -45,19 +45,19 @@ const setDynamicProperty = (object, propName, value) => {
   return [propName, value];
 };
 
-// test('계산된 속성을 사용해 객체의 메서드 이름을 think로 설정할 수 있다.', () => {
-//   let propertyName = 'think';
-//   const [propName] = setDynamicProperty(euid, propertyName, '생각하다');
-//   expect(propName).toEqual(propertyName);
-// });
+test('계산된 속성을 사용해 객체의 메서드 이름을 think로 설정할 수 있다.', () => {
+  let propertyName = 'think';
+  const [propName] = setDynamicProperty(euid, propertyName, '생각하다');
+  expect(propName).toEqual(propertyName);
+});
 
-// test('계산된 속성을 사용해 객체의 메서드 이름을 behavior로 변경할 수 있다.', () => {
-//   let methodName = 'behavior';
-//   let returnValue = '행동하다';
-//   const [,value] = setDynamicProperty(
-//     euid,
-//     methodName,
-//     () => returnValue
-//   );
-//   expect(value()).toEqual(euid[methodName]);
-// });
+test('계산된 속성을 사용해 객체의 메서드 이름을 behavior로 변경할 수 있다.', () => {
+  let methodName = 'behavior';
+  let returnValue = '행동하다';
+  const [,value] = setDynamicProperty(
+    euid,
+    methodName,
+    () => returnValue
+  );
+  expect(value()).toEqual(euid[methodName]);
+});
