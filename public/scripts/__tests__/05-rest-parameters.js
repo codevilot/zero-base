@@ -10,12 +10,11 @@ var multiplyCount = function () {
   var rest = [].slice.call(arguments, 1); // 나머지 매개변수
 
   // for문 → Array.prototype.reduce 메서드 구문으로 변경해보세요.
-  for (var i = 0, l = rest.length; i < l; ++i) {
-    if (i === 0) first += rest[i];
-    else first *= rest[i];
-  }
-
-  return first;
+  return  rest.reduce((total , currentCount, index)=> index===0? (total+=currentCount):total*=currentCount, first)
+  // for (var i = 0, l = rest.length; i < l; ++i) {
+  //   if (i === 0) first += rest[i];
+  //   else first *= rest[i];
+  // }
 };
 
 
@@ -25,7 +24,7 @@ var multiplyCount = function () {
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-test('multiplyCount(101, 3, 6, 9) 결과 값은 5000보다 크거가 같고, 10000보다 작다.', () => {
+test('multiplyCount(101, 3, 6, 9) 결과 값은 5000보다 크거나 같고, 10000보다 작다.', () => {
   let value = multiplyCount(101, 3, 6, 9);
   expect(value).toBeGreaterThanOrEqual(5000);
   expect(value).toBeLessThan(10000);
