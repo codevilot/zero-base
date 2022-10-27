@@ -12,8 +12,8 @@
 //   return value;
 // };
 
-const truncateText = (text, limit = defaultArg(limit, 100)) =>
-  `${text.slice(0, limit)}...`;
+// const truncateText = (text, limit = defaultArg(limit, 100)) =>
+const truncateText = (text, limit = 100) => `${text.slice(0, limit)}...`;
 
 // ------------------------------------------------------------------------------
 // TEST
