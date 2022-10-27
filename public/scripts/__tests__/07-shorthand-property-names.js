@@ -26,9 +26,9 @@ const watch = () => {
 
 var euid = {
   name: '이듬',
-  show: show,
-  look: look,
-  watch: watch,
+  show,
+  look,
+  watch
 };
 
 

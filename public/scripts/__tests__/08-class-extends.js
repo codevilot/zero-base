@@ -79,35 +79,57 @@ createClass.exntends = function (o1, o2) {
 // ------------------------------------------------------------------------------
 
 // Button 클래스
-var Button = createClass({
-  constructor: function(type, label) {
-    this.type = type;
-    this.label = label;
-  },
-  static: {
-    version: '1.0.0',
-  },
-  getType: function () {
-    return this.type;
-  },
-});
+class Button {
+  #type;
 
-// Button 클래스를 확장한 AriaButton 클래스
-var AriaButton = createClass(
-  {
-    constructor: function(type, label, usingAria) {
-      Button.apply(this, arguments);
-      this.usingAria = createClass.defaultArg(usingAria, true);
-    },
-    static: {
-      displayName: 'AriaButton',
-    },
-    getVersion: function () {
-      return AriaButton.version;
-    },
-  },
-  Button
-);
+  static version = '1.0.0'
+  constructor(type, label){
+    this.#type=type;
+    this.label = label;
+  }
+  getType(){
+    return this.#type
+  } 
+}
+class AriaButton extends Button{
+  constructor(type, label, usingAria){
+    super(type, label);
+    this.usingAria = usingAria
+  }
+  static displayName = 'AriaButton';
+  getVersion(){
+    return AriaButton.version
+  }
+}
+// var Button = createClass({
+//   constructor: function(type, label) {
+//     this.type = type;
+//     this.label = label;
+//   },
+//   static: {
+//     version: '1.0.0',
+//   },
+//   getType: function () {
+//     return this.type;
+//   },
+// });
+
+// // Button 클래스를 확장한 AriaButton 클래스
+// var AriaButton = createClass(
+//   {
+//     constructor: function(type, label, usingAria) {
+//       Button.apply(this, arguments);
+//       this.usingAria = createClass.defaultArg(usingAria, true);
+//     },
+//     static: {
+//       displayName: 'AriaButton',
+//     },
+//     getVersion: function () {
+//       return AriaButton.version;
+//     },
+//   },
+//   Button
+// );
 
 
 // ------------------------------------------------------------------------------
@@ -116,13 +138,13 @@ var AriaButton = createClass(
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('new Button()은 Button 클래스의 인스턴스이다.', () => {
-//   expect(new Button('button', '저장')).toBeInstanceOf(Button);
-// });
+test('new Button()은 Button 클래스의 인스턴스이다.', () => {
+  expect(new Button('button', '저장')).toBeInstanceOf(Button);
+});
 
-// test('new AriaButton()은 Button 클래스를 상속한다.', () => {
-//   const { type, label } = { type: 'submit', label: '전송' };
-//   const ariaButtonInstance = new AriaButton(type, label, false);
-//   expect(ariaButtonInstance.getType()).toBe(type);
-//   expect(ariaButtonInstance.label).toBe(label);
-// });
+test('new AriaButton()은 Button 클래스를 상속한다.', () => {
+  const { type, label } = { type: 'submit', label: '전송' };
+  const ariaButtonInstance = new AriaButton(type, label, false);
+  expect(ariaButtonInstance.getType()).toBe(type);
+  expect(ariaButtonInstance.label).toBe(label);
+});
