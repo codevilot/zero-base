@@ -23,7 +23,10 @@
     "watch:lint": "cross-var esw --watch $npm_package_config_dir --ignore-path .gitignore",
     "format": "cross-var prettier --write $npm_package_config_dir --ignore-path .gitignore",
     "watch:format": "cross-var onchange $npm_package_config_dir -- npm run format {{changed}}",
-    "test": "jest"
+    "compile": "cross-var babel $npm_package_config_file_input -o $npm_package_config_file_output",
+    "compile:dir": "cross-var babel $npm_package_config_folder_input -d $npm_package_config_folder_output",
+    "watch:compile": "npm run compile -- --watch",
+    "test": "BABEL_MODULES=cjs jest --watch"
   },
   "keywords": [
     "ecmascript",
