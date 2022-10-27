@@ -51,46 +51,46 @@ const company = Object.freeze({
 
 let companyName, companyLat;
 
-// describe('company 테스트', () => {
-//   test('company.companyName은 존재하지 않으므로 undefined 입니다.', () => {
-//     // 옵셔널 체이닝 코드를 활용해봅니다.
-//     if ('companyName' in company) {
-//       companyName = company.companyName;
-//     }
+describe('company 테스트', () => {
+  test('company.companyName은 존재하지 않으므로 undefined 입니다.', () => {
+    // 옵셔널 체이닝 코드를 활용해봅니다.
+    if ('companyName' in company) {
+      companyName = company.companyName;
+    }
 
-//     expect(companyName).not.toBeDefined();
-//   });
+    expect(companyName).not.toBeDefined();
+  });
 
-//   test('companyLat 값은 321입니다.', () => {
-//     // 옵셔널 체이닝 코드를 활용해봅니다.
-//     if ('location' in company) {
-//       if ('lat' in company.location) {
-//         companyLat = company.location.lat;
-//       }
-//     }
+  test('companyLat 값은 321입니다.', () => {
+    // 옵셔널 체이닝 코드를 활용해봅니다.
+    if ('location' in company) {
+      if ('lat' in company.location) {
+        companyLat = company.location.lat;
+      }
+    }
 
-//     expect(companyLat).toBe(321);
-//   });
+    expect(companyLat).toBe(321);
+  });
 
-//   test('company.getFoundingDate는 함수 타입이 아니므로 실행할 수 없어 undefined 입니다.', () => {
-//     // 옵셔널 체이닝 코드를 활용해봅니다.
-//     if ('getFoundingDate' in company) {
-//       if (typeof company.getFoundingDate === 'function') {
-//         company.getFoundingDate();
-//       }
-//     }
+  test('company.getFoundingDate는 함수 타입이 아니므로 실행할 수 없어 undefined 입니다.', () => {
+    // 옵셔널 체이닝 코드를 활용해봅니다.
+    if ('getFoundingDate' in company) {
+      if (typeof company.getFoundingDate === 'function') {
+        company.getFoundingDate();
+      }
+    }
 
-//     expect(company.getFoundingDate()).toBeUndefined();
-//   });
+    expect(company.getFoundingDate()).toBeUndefined();
+  });
 
-//   test('company.getLocation 타입은 함수이므로 조건 처리 결과 실행 가능합니다. 반환 값은 [321, -39] 입니다.', () => {
-//     // 옵셔널 체이닝 코드를 활용해봅니다.
-//     if ('getLocation' in company) {
-//       if (typeof company.getLocation === 'function') {
-//         company.getLocation();
-//       }
-//     }
+  test('company.getLocation 타입은 함수이므로 조건 처리 결과 실행 가능합니다. 반환 값은 [321, -39] 입니다.', () => {
+    // 옵셔널 체이닝 코드를 활용해봅니다.
+    if ('getLocation' in company) {
+      if (typeof company.getLocation === 'function') {
+        company.getLocation();
+      }
+    }
 
-//     expect(company.getLocation()).toStrictEqual([321, -39]);
-//   });
-// });
+    expect(company.getLocation()).toStrictEqual([321, -39]);
+  });
+});
