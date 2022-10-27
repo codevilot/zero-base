@@ -7,8 +7,9 @@
 
 // 배열 전개 ---------------------------------------------------------------------
 
-var integers = [-1, 0, 32, -101, 24];
-var maxInt = Math.max.apply(Math, [302, 1, 2, 30, -101].concat(integers));
+const integers = [-1, 0, 32, -101, 24];
+let maxInt = Math.max.apply(Math, [302, 1, 2, 30, -101].concat(integers));
+// let maxInt = Math.max(...[302, 1, 2, 30, -101], ...integers);
 
 // 객체 전개 ---------------------------------------------------------------------
 
@@ -64,30 +65,30 @@ var setState = function(type) {
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('maxInt 값은 302', () => {
-//   expect(maxInt).toBe(302);
-// });
+test('maxInt 값은 302', () => {
+  expect(maxInt).toBe(302);
+});
 
-// test('newState의 loading 상태 값은 true', () => {
-//   const newState = setState({
-//     loading: true,
-//   });
+test('newState의 loading 상태 값은 true', () => {
+  const newState = setState({
+    loading: true,
+  });
 
-//   expect(newState.loading).toBeTruthy();
-// });
+  expect(newState.loading).toBeTruthy();
+});
 
-// test('newState() 함수 깊은 복사(deep copy) 테스트', () => {
-//   const newState = setState((state) => ({
-//     data: [...state.data, { id: 201, title: '추가 데이터' }],
-//   }));
+test('newState() 함수 깊은 복사(deep copy) 테스트', () => {
+  const newState = setState((state) => ({
+    data: [...state.data, { id: 201, title: '추가 데이터' }],
+  }));
 
-//   expect(newState).toStrictEqual({
-//     ...state,
-//     data: [
-//       { id: 101, title: '초기 데이터' },
-//       { id: 201, title: '추가 데이터' },
-//     ],
-//   });
+  expect(newState).toStrictEqual({
+    ...state,
+    data: [
+      { id: 101, title: '초기 데이터' },
+      { id: 201, title: '추가 데이터' },
+    ],
+  });
 
-//   expect(newState.data).toHaveLength(2);
-// });
+  expect(newState.data).toHaveLength(2);
+});

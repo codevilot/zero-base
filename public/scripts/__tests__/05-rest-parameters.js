@@ -25,8 +25,8 @@ var multiplyCount = function () {
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('multiplyCount(101, 3, 6, 9) 결과 값은 5000보다 크거가 같고, 10000보다 작다.', () => {
-//   let value = multiplyCount(101, 3, 6, 9);
-//   expect(value).toBeGreaterThanOrEqual(5000);
-//   expect(value).toBeLessThan(10000);
-// });
+test('multiplyCount(101, 3, 6, 9) 결과 값은 5000보다 크거가 같고, 10000보다 작다.', () => {
+  let value = multiplyCount(101, 3, 6, 9);
+  expect(value).toBeGreaterThanOrEqual(5000);
+  expect(value).toBeLessThan(10000);
+});
