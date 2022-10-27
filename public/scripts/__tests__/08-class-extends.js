@@ -4,117 +4,123 @@
 // - [ ] Prototype 대신 Class를 활용해 객체 지향 코드를 작성합니다.
 // -----------------------------------------------------------------------------
 
+// 컨스트럭터
+// 프로토타입
+
 // 클래스 유틸리티 함수 --------------------------------------------------------------
 
-function createClass(classObject, SuperClass) {
-  if (!classObject) throw new TypeError('첫번째 인자인 classObject 객체가 설정되지 않았습니다.');
+// function createClass(classObject, SuperClass) {
+//   if (!classObject) throw new TypeError('첫번째 인자인 classObject 객체가 설정되지 않았습니다.');
 
-  // @constructor
-  var Class = createClass.extractPropValue(classObject, 'constructor');
+//   // @constructor
+//   var Class = createClass.extractPropValue(classObject, 'constructor');
 
-  // @static
-  var staticMembers = createClass.extractPropValue(classObject, 'static');
+//   // @static
+//   var staticMembers = createClass.extractPropValue(classObject, 'static');
 
-  if (staticMembers) {
-    createClass.exntends(Class, staticMembers);
-  }
+//   if (staticMembers) {
+//     createClass.exntends(Class, staticMembers);
+//   }
 
-  // @prototype
-  if (!Class.prototype) Class.prototype = {};
-  createClass.exntends(Class.prototype, classObject);
+//   // @prototype
+//   if (!Class.prototype) Class.prototype = {};
+//   createClass.exntends(Class.prototype, classObject);
 
-  // @super
-  var Super = createClass.defaultArg(SuperClass, null);
+//   // @super
+//   var Super = createClass.defaultArg(SuperClass, null);
 
-  if (Super) {
-    createClass.exntends(Class, Super);
-    createClass.exntends(Class.prototype, Super.prototype);
-    Class.prototype.consturctor = Class;
-  }
+//   if (Super) {
+//     createClass.exntends(Class, Super);
+//     createClass.exntends(Class.prototype, Super.prototype);
+//     Class.prototype.consturctor = Class;
+//   }
 
-  Class.prototype.constructor = Class;
+//   Class.prototype.constructor = Class;
 
-  return Class;
-}
+//   return Class;
+// }
 
-createClass.getFunctionParameters = function (func) {
-  var fnStr = func.toString().replace(/((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg, '');
-  var argsList = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')'));
-  var result = argsList.match(/(?:^|,)\s*([^\s,=]+)/g);
+// createClass.getFunctionParameters = function (func) {
+//   var fnStr = func.toString().replace(/((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg, '');
+//   var argsList = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')'));
+//   var result = argsList.match(/(?:^|,)\s*([^\s,=]+)/g);
 
-  if(result === null) {
-    return [];
-  }
-  else {
-    var stripped = [];
-    for ( var i = 0; i < result.length; i++  ) {
-      stripped.push( result[i].replace(/[\s,]/g, '') );
-    }
-    return stripped;
-  }
-}
+//   if(result === null) {
+//     return [];
+//   }
+//   else {
+//     var stripped = [];
+//     for ( var i = 0; i < result.length; i++  ) {
+//       stripped.push( result[i].replace(/[\s,]/g, '') );
+//     }
+//     return stripped;
+//   }
+// }
 
-createClass.defaultArg = function (value, initialValue) {
-  return value === undefined ? initialValue : value;
-};
+// createClass.defaultArg = function (value, initialValue) {
+//   return value === undefined ? initialValue : value;
+// };
 
-createClass.extractPropValue = function (object, propName) {
-  var value = object[propName];
-  value && delete object[propName];
-  return value;
-};
+// createClass.extractPropValue = function (object, propName) {
+//   var value = object[propName];
+//   value && delete object[propName];
+//   return value;
+// };
 
-createClass.exntends = function (o1, o2) {
-  for (var key in o2) {
-    if ({}.hasOwnProperty.call(o2, key)) {
-      if (!o1[key]) {
-        o1[key] = o2[key];
-      } else {
-        o1[key]._super[key] = o2[key];
-      }
-    }
-  }
-};
+// createClass.exntends = function (o1, o2) {
+//   for (var key in o2) {
+//     if ({}.hasOwnProperty.call(o2, key)) {
+//       if (!o1[key]) {
+//         o1[key] = o2[key];
+//       } else {
+//         o1[key]._super[key] = o2[key];
+//       }
+//     }
+//   }
+// };
 
 // ------------------------------------------------------------------------------
 
 // Button 클래스
+
 class Button {
   #type;
+  // #label;
 
-  static version = '1.0.0'
-  constructor(type, label){
-    this.#type=type;
+  constructor(type, label) {
+    this.#type = type;
     this.label = label;
   }
-  getType(){
-    return this.#type
-  } 
-}
-class AriaButton extends Button{
-  constructor(type, label, usingAria){
-    super(type, label);
-    this.usingAria = usingAria
-  }
-  static displayName = 'AriaButton';
-  getVersion(){
-    return AriaButton.version
-  }
-}
-// var Button = createClass({
-//   constructor: function(type, label) {
-//     this.type = type;
-//     this.label = label;
-//   },
-//   static: {
-//     version: '1.0.0',
-//   },
-//   getType: function () {
-//     return this.type;
-//   },
-// });
 
-// // Button 클래스를 확장한 AriaButton 클래스
+  static version = '1.0.0';
+
+  getType() {
+    return this.#type;
+  }
+
+  // get type() {
+  //   return this.#type;
+  // }
+
+  // set type(newType) {
+  //   this.#type = newType;
+  // }
+}
+
+// Button 클래스를 확장한 AriaButton 클래스
+class AriaButton extends Button {
+  constructor(type, label, usingAria) {
+    super(type, label);
+    this.usingAria = usingAria;
+  }
+
+  static displayName = 'AriaButton';
+
+  getVersion() {
+    return AriaButton.version;
+  }
+}
+
 // var AriaButton = createClass(
 //   {
 //     constructor: function(type, label, usingAria) {
@@ -131,9 +137,8 @@ class AriaButton extends Button{
 //   Button
 // );
 
-
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------

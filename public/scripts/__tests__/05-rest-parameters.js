@@ -5,21 +5,24 @@
 // - [ ] 함수 문 또는 식 → 화살표 함수 식으로 변경합니다.
 // -----------------------------------------------------------------------------
 
-var multiplyCount = function () {
-  var first = arguments[0]; // 첫번째 매개변수
-  var rest = [].slice.call(arguments, 1); // 나머지 매개변수
-
+var multiplyCount = (first, ...rest) => {
   // for문 → Array.prototype.reduce 메서드 구문으로 변경해보세요.
-  return  rest.reduce((total , currentCount, index)=> index===0? (total+=currentCount):total*=currentCount, first)
+  return rest.reduce(
+    (total, currentCount, index) =>
+      index === 0 ? (total += currentCount) : (total *= currentCount),
+    first
+  );
+
   // for (var i = 0, l = rest.length; i < l; ++i) {
   //   if (i === 0) first += rest[i];
   //   else first *= rest[i];
   // }
+
+  // return first;
 };
 
-
 // ------------------------------------------------------------------------------
-// TEST                                                                      
+// TEST
 // ------------------------------------------------------------------------------
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
