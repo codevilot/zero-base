@@ -11,19 +11,16 @@
 const defaultArg = (value, initialValue) => {
   // Ternaries
   // 아래 코드를 3항 연산 식으로 변경합니다.
-  if (value === null || value === undefined) {
-    return initialValue;
-  } else {
-    return value;
-  }
+  // return value === null || value === undefined ? initialValue : value;
 
   // Nullish coalescing operator
   // null 병합 연산자를 사용한 식으로 변경합니다.
+  return value ?? initialValue;
 };
 
-const ellipsisText = (text, limit) => {
+const ellipsisText = (text, limit = 100) => {
   // 기본 매개변수를 활용해 코드를 변경합니다.
-  limit = defaultArg(limit, 100);
+  // limit = defaultArg(limit, 100);
   return `${text.slice(0, limit).trim()}...`;
 };
 
@@ -41,7 +38,6 @@ const company = Object.freeze({
     return Object.values(company.location);
   },
 });
-
 
 // ------------------------------------------------------------------------------
 // TEST
@@ -74,11 +70,13 @@ describe('company 테스트', () => {
 
   test('company.getFoundingDate는 함수 타입이 아니므로 실행할 수 없어 undefined 입니다.', () => {
     // 옵셔널 체이닝 코드를 활용해봅니다.
-    if ('getFoundingDate' in company) {
-      if (typeof company.getFoundingDate === 'function') {
-        company.getFoundingDate();
-      }
-    }
+    // if ('getFoundingDate' in company) {
+    //   if (typeof company.getFoundingDate === 'function') {
+    //     company.getFoundingDate();
+    //   }
+    // }
+
+    // company.getFoundingDate?.();
 
     expect(company.getFoundingDate()).toBeUndefined();
   });
