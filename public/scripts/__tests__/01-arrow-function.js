@@ -7,11 +7,19 @@
 
 // fibonacci 유틸리티 -------------------------------------------------------------
 
-var fibonacci = function() {};
+var fibonacci = function(number) {
+
+    return number>1 ? fibonacci(number-1)+fibonacci(number-2) : 1
+    if(number<1) return 1
+    if(number===2) return 1
+    return fibonacci(number-1)+ fibonacci(number-2)
+};
 
 // numberWithComma 유틸리티 -------------------------------------------------------
 
-var numberWithComma = function() {};
+// var numberWithComma = function() {
+//     number.toString().replace(/(\d)(?))
+// };
 
 // ------------------------------------------------------------------------------
 // TEST
@@ -19,11 +27,11 @@ var numberWithComma = function() {};
 // - [ ] Jest 테스트 러너를 구동한 후, 테스트가 성공하도록 함수 로직을 구성합니다.
 // ------------------------------------------------------------------------------
 
-// test('fibonacci 유틸리티', () => {
-//   expect(fibonacci(6)).toBe(8);
-//   expect(fibonacci(12)).toBe(144);
-//   expect(fibonacci(18)).toBe(2584);
-// });
+test('fibonacci 유틸리티', () => {
+  expect(fibonacci(6)).toBe(8);
+  expect(fibonacci(12)).toBe(144);
+  expect(fibonacci(18)).toBe(2584);
+});
 
 // test('numberWithComma 유틸리티', () => {
 //   expect(numberWithComma(900)).toBe('900');
