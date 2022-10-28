@@ -1,7 +1,9 @@
-import { fetchBooks } from '../utils/index.js';
+// import "../components/SupportIE.js"
 
-fetchBooks()
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => console.error(error.message));
+//  async function renderSupportIE(){
+//     await customElements.whenDefined('support-ie');
+//     const supportIE = document.createElement('support-ie')
+//     document.body.insertAdjacentElement('afterbegin', supportIE)
+// }
+
+// renderSupportIE()
