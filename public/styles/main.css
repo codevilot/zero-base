@@ -3,6 +3,13 @@
 
   --white: #fff;
   --black: #000;
+<<<<<<< HEAD
+=======
+
+  --min-viewport: 320px;
+  --max-viewport: 1280px;
+  --space: 4px;
+>>>>>>> 602719ed792855ae344c6d167e8bc3822b1c7172
 }
 
 body {
@@ -12,7 +19,33 @@ body {
   color: var(--black);
 }
 
+<<<<<<< HEAD
 .dark body {
   background: var(--black);
   color: var(--white);
+=======
+body,
+body::before,
+body::after,
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+.dark body {
+  background: var(--black);
+  color: var(--white);
+}
+
+.container {
+  width: clamp(var(--min-viewport), 90vw, var(--max-viewport));
+  margin: 0 auto;
+  padding: calc(var(--space) * 5);
+>>>>>>> 602719ed792855ae344c6d167e8bc3822b1c7172
 }

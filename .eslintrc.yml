@@ -16,7 +16,11 @@ parserOptions:
       - '@babel/plugin-syntax-import-assertions'
 plugins:
   - jest
+<<<<<<< HEAD
 rules: {
+=======
+rules:
+>>>>>>> 602719ed792855ae344c6d167e8bc3822b1c7172
   no-unused-vars: warn
   jest/no-disabled-tests: warn
   jest/no-focused-tests: error
