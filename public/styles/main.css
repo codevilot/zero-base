@@ -3,6 +3,10 @@
 
   --white: #fff;
   --black: #000;
+
+  --min-viewport: 320px;
+  --max-viewport: 1280px;
+  --space: 4px;
 }
 
 body {
@@ -12,7 +16,27 @@ body {
   color: var(--black);
 }
 
+body,
+body::before,
+body::after,
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
 .dark body {
   background: var(--black);
   color: var(--white);
+}
+
+.container {
+  width: clamp(var(--min-viewport), 90vw, var(--max-viewport));
+  margin: 0 auto;
+  padding: calc(var(--space) * 5);
 }
