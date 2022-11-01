@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/components/Icon copy.js"],"names":["Icon"],"mappings":"AAAA,OAAO,IAAMA,IAAI,GAAG,SAAPA,IAAO,GAAM;AACxB,SAAO,6CAAP;AACD,CAFM","sourcesContent":["export const Icon = () => {\r\n  return <button>ahahah</button>;\r\n};\r\n"],"file":"Icon copy.js"}
