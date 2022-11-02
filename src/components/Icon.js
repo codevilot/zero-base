@@ -8,8 +8,12 @@ const iconSrc = {
   disabled: 'type=not-allowed.svg',
 };
 
+const style = {
+  height: '9px',
+};
+
 const Icon = (props) => {
-  return <img src={`${ICON_PATH}/${iconSrc[props.type]}`} />;
+  return <img src={`${ICON_PATH}/${iconSrc[props.type]}`} style={style} />;
 };
 
 export default Icon;
