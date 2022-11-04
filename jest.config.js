@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
@@ -191,4 +192,19 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+=======
+export default {
+  clearMocks: true,
+
+  roots: ['<rootDir>/src'],
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+
+  transform: {
+    '\\.[jt]sx?$': 'babel-jest',
+  },
+  transformIgnorePatterns: ['<rootDir>/node_modules/', '\\.pnp\\.[^\\/]+$'],
+
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+>>>>>>> 4bbfc1f6b689ba93b4ba3dfdb2cead57c0eb0287
 };
