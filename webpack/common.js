@@ -8,6 +8,8 @@ import {
   svgAssetsLoader,
 } from './loaders/index.js';
 
+import { createDotEnv, createHtmlTemplate } from './plugins/index.js';
+
 const commonConfig = {
   target: ['browserslist'],
   resolve: {
@@ -22,7 +24,7 @@ const commonConfig = {
   },
   output: {
     path: resolve('public'),
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].bundle.js',
   },
   module: {
     rules: [
@@ -34,7 +36,7 @@ const commonConfig = {
       svgAssetsLoader,
     ],
   },
-  plugins:[createDotEnv()].filter(Boolean)
+  plugins: [createDotEnv(), createHtmlTemplate()].filter(Boolean),
 };
 
 export default commonConfig;
