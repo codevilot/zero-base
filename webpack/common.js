@@ -34,6 +34,7 @@ const commonConfig = {
       svgAssetsLoader,
     ],
   },
+  plugins:[createDotEnv()].filter(Boolean)
 };
 
 export default commonConfig;
