@@ -7,7 +7,7 @@
     "react-dom": "18.2.0"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
+    "classnames": "2.3.2",
     "web-vitals": "2.1.4"
   },
   "devDependencies": {
@@ -35,7 +35,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/self-closing-comp": "warn"
+      "react/self-closing-comp": "warn",
+      "testing-library/no-debugging-utils": "off"
     }
   },
   "browserslist": {
