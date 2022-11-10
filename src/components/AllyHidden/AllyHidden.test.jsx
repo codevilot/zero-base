@@ -42,10 +42,10 @@ describe("AllyHidden 컴포넌트", () => {
     //   render(<AllyHidden>테스트</AllyHidden>);
   //   const element = screen.getByRole("/테스트/");
   //   expect(element).toBeInTheDocument();
-
-  test("컴포넌트에 focusable 속성을 추가하면 시각적으로 화면에 표시됩니다", () => {
-    render(<AllyHidden>테스트</AllyHidden>);
-    const element = screen.getByRole("/테스트/");
-    expect(element).toBeInTheDocument();
   });
+  // test("컴포넌트에 focusable 속성을 추가하면 시각적으로 화면에 표시됩니다", () => {
+  //   render(<AllyHidden>테스트</AllyHidden>);
+  //   const element = screen.getByRole("/테스트/");
+  //   expect(element).toBeInTheDocument();
+  // });
 });
